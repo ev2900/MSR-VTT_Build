@@ -24,4 +24,16 @@ Reference the [ffmpeg download page](https://www.ffmpeg.org/download.html) for i
 
 ## Download the videos
 
+The first python script [0_download_videos.py](https://github.com/ev2900/MSR-VTT_Build/blob/main/0_download_videos.py) uses the [video_metadata.json](https://github.com/ev2900/MSR-VTT_Build/blob/main/video_metadata.json) and tries to download however many videos you set ```number_of_videos_to_download``` variable to. 
+
+The output videos are stored in a folder *0_full_videos*
+
+You can rerun this script multiple times and if a video is already downloaded it will skip it. 
+
+If the script hits an error most often the video is private or unavailable it will log an error message to ```error_log.txt```
+
 ## Trim the videos
+
+The second script [1_trim_videos.py](https://github.com/ev2900/MSR-VTT_Build/blob/main/1_trim_videos.py) trims the full length videos download by the first to meet the specification of MSR-VTT. 
+
+The output videos are stored in a folder *1_trim_videos*
