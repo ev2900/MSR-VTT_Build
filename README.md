@@ -1,3 +1,3 @@
-# Build MSR-VTT, download and trip the videos from Youtube 
+# MSR-VTT download and trim the videos from Youtube 
 
 
