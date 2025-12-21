@@ -1,5 +1,6 @@
 from yt_dlp import YoutubeDL
 import json
+from pathlib import Path
 
 # Function to dowload the YouTube video via. yt_dlp
 def dowload_video(url, video_id):
@@ -11,12 +12,16 @@ def dowload_video(url, video_id):
     with YoutubeDL(ydl_opts) as ydl:
         ydl.download([url])
 
+# Check if output directory exists, if it does not create it
+out_dir = Path("0_full_videos")
+out_dir.mkdir(exist_ok=True)
+
 # Open MSR-VTT metadata
 with open("video_metadata.json", "r") as f:
     video_metadata = json.load(f)
 
 # Interate through the metadata and download the videos
-number_of_videos_to_download = 2
+number_of_videos_to_download = 2 # Upto 9999
 videos_downloaded = 0
 
 for video in video_metadata['videos']:
