@@ -21,7 +21,7 @@ with open('video_metadata.json', 'r') as f:
     video_metadata = json.load(f)
 
 # Interate through the metadata and download the videos
-number_of_videos_to_download = 10 # Upto 9999
+number_of_videos_to_download = 9999 # Upto 9999
 videos_downloaded = 0
 
 for video in video_metadata['videos']:
