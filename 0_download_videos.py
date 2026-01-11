@@ -7,6 +7,14 @@ def dowload_video(url, video_id):
     ydl_opts = {
         "format": 'best[ext=mp4][acodec!=none]/best[acodec!=none]/best',
         "outtmpl": f'0_full_videos/{video_id}.mp4',
+        "cookiefile": "youtube_cookies.txt",
+        
+        "ratelimit": 1_000_000,              # ~1 MB/s (tune up/down)
+        "sleep_interval": 3,                 # sleep 3..8 seconds between downloads
+        "max_sleep_interval": 8,
+        "concurrent_fragment_downloads": 1,  # avoid parallel fragment fetching
+        "retries": 10,
+        "fragment_retries": 10,
     }
 
     with YoutubeDL(ydl_opts) as ydl:
